@@ -122,3 +122,4 @@ def create_product(
 @app.get("/products/", response_model=List[schemas.Product])
 def get_products(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     return crud.get_products(db, skip=skip, limit=limit)
+
