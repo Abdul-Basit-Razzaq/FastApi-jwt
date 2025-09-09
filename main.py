@@ -17,8 +17,11 @@ from utils import verify_password, send_otp_email
 # Create tables at startup (idempotent)
 Base.metadata.create_all(bind=engine)
 
-# Single FastAPI instance
-app = FastAPI(title="JWT + FastAPI + PostgreSQL + OTP")
+app = FastAPI(
+    title="JWT + FastAPI + PostgreSQL + OTP",
+    docs_url="/",         # ✅ Swagger UI will be shown at root (http://127.0.0.1:8000/)
+    redoc_url=None        # Optional: Disable Redoc
+)
 
 # Load .env
 load_dotenv()
