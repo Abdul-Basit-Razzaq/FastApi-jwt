@@ -30,8 +30,10 @@ if not DATABASE_URL:
     raise ValueError("DATABASE_URL is not set in the environment variables.")
 
 # Create the database engine
-engine = create_engine(DATABASE_URL, future=True, echo=True)  # echo=True for SQL logs
-
+engine = create_engine(
+    DATABASE_URL,
+    connect_args={"sslmode": "require"}  # Required by Railway PostgreSQL
+)
 # Create a session factory
 SessionLocal = sessionmaker(
     autocommit=False,
