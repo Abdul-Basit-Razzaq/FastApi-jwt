@@ -130,7 +130,3 @@ if __name__ == "__main__":
     import uvicorn
     port = int(os.environ.get("PORT", 8000))  # Default to 8000 locally
     uvicorn.run("main:app", host="0.0.0.0", port=port)
-<<<<<<< HEAD
-=======
-
->>>>>>> 8858e4125c6797ee09217e14307d9e6b42a900ff
