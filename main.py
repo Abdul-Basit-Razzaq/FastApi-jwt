@@ -126,3 +126,7 @@ def create_product(
 def get_products(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     return crud.get_products(db, skip=skip, limit=limit)
 
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))  # Default to 8000 locally
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
