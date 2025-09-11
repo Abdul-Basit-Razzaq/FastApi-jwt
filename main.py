@@ -192,8 +192,8 @@ def verify_signup(data: schemas.OTPVerify, db: Session = Depends(get_db)):
 
 @app.post("/signup/create", response_model=schemas.User)
 def create_account(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    if not crud.is_email_verified(db, user.email):
-        raise HTTPException(status_code=400, detail="Email not verified via OTP")
+    # if not crud.is_email_verified(db, user.email):
+    #     raise HTTPException(status_code=400, detail="Email not verified via OTP")
     return crud.create_user(db, user)
 
 # ---------------- LOGIN ----------------
