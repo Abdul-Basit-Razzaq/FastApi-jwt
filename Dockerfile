@@ -16,5 +16,9 @@ COPY . .
 # 6. Expose the port (optional, purely informational)
 EXPOSE 8000
 
-# 7. Run FastAPI with uvicorn using Railway PORT
-CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+# 7. Copy and make script executable
+COPY start.sh .
+RUN chmod +x start.sh
+
+# 8. Run the script
+CMD ["./start.sh"]
